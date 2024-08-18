@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
+
+export default function App() {
+  const [clientInputValue, setClientInputValue] = useState('');
+  const [serverValue, setServerValue] = useState('');
+  const [errorValue, setErrorValue] = useState('');
+
+  function pushValueButtonClicked() {
+    setClientInputValue('');
+  }
+
+  function getValueButtonClicked() {
+    setServerValue('test');
+    setErrorValue('test');
+
+    alert(clientInputValue);
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+        <input
+          type='text'
+          value={clientInputValue}
+          onChange={e => setClientInputValue(e.target.value)}
+        />
 
-export default App
+        <button
+          onClick={pushValueButtonClicked}
+        >
+          Push to Server
+          </button>
+      </div>
+
+      <div>
+        <button
+          onClick={getValueButtonClicked}
+        >
+          Get Value From Server
+        </button>
+
+        <p>'{serverValue}'</p>
+        <p className='error-message'>{errorValue}</p>
+      </div>
+    </>
+  );
+}
