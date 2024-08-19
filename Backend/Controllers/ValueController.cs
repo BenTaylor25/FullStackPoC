@@ -1,3 +1,4 @@
+using Backend.Contract.Value;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers;
@@ -5,8 +6,12 @@ namespace Backend.Controllers;
 public class ValueController : AppBaseController
 {
     [HttpGet("/value")]
-    public string GetValue()
+    public IActionResult GetValue()
     {
-        return "Hello, World!";
+        return Ok(
+            new ValueResponse(
+                value: "Hello, World!"
+            )
+        );
     }
 }
