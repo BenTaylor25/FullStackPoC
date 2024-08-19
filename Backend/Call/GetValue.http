@@ -1,2 +1,2 @@
 
-GET http://localhost:5035/forecast
+GET http://localhost:5035/value
