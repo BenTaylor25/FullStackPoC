@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { getValue } from './API/value';
 import './App.css';
 
 export default function App() {
@@ -12,10 +13,16 @@ export default function App() {
   }
 
   function getValueButtonClicked() {
-    setServerValue('test');
-    setErrorValue('test');
-
-    alert(clientInputValue);
+    getValue()
+      .then(res => {
+        if (res) {
+          setServerValue(res);
+          setErrorValue('');
+        } else {
+          setServerValue('');
+          setErrorValue('Could not reach server.');
+        }
+      });
   }
 
   return (
