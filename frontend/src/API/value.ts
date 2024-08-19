@@ -7,18 +7,15 @@ export async function getValue(): Promise<string | null> {
         .then(res => {
             console.log(res)
             if (res.ok) {
-                return res.body;
+                return res.json();
             }
 
             throw Error("Server said no.");
         })
         .then(body => {
-            console.log(body)
-            value = `${body}`;
+            value = body.value;
         })
-        .catch(() => {
-            console.log("?")
-        });
+        .catch(() => {});
 
     return value;
 }
