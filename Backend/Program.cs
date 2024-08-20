@@ -1,8 +1,11 @@
+using Backend.Services.Values;
+
 const string FRONTEND_URL = "http://localhost:5173";
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
+    builder.Services.AddSingleton<IValueService, ValueService>();
     // builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddCors(setup => {

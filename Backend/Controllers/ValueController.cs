@@ -4,16 +4,17 @@ using ErrorOr;
 
 using Backend.Contract.Value;
 using Backend.Models;
-using Backend.Services;
+using Backend.Services.Values;
 
 namespace Backend.Controllers;
 
 public class ValueController : AppBaseController
 {
-    private readonly ValueService _valueService;
+    private readonly IValueService _valueService;
 
-    public ValueController(ValueService valueService)
+    public ValueController(IValueService valueService)
     {
+        Console.WriteLine("controller constructor");
         _valueService = valueService;
     }
 
@@ -37,9 +38,12 @@ public class ValueController : AppBaseController
     [HttpPost("/value/{value}")]
     public IActionResult SetValue(string value)
     {
+        var resp = _valueService.GetValue();
+        Console.WriteLine(resp.Value);
+
         ErrorOr<Updated> setValueResponse = _valueService.SetValue(value);
 
-        var resp = _valueService.GetValue();
+        resp = _valueService.GetValue();
         Console.WriteLine(resp.Value);
 
         if (setValueResponse.IsError)

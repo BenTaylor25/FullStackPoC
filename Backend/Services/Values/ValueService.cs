@@ -2,9 +2,9 @@ using ErrorOr;
 
 using Backend.Models;
 
-namespace Backend.Services;
+namespace Backend.Services.Values;
 
-public class ValueService
+public class ValueService : IValueService
 {
     private ValueModel _value;
 
