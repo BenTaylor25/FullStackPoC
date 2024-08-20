@@ -1,0 +1,4 @@
+
+@value = did it work?
+
+POST http://localhost:5035/value/{{value}}

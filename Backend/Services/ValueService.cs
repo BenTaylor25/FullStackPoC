@@ -1,8 +1,12 @@
 using ErrorOr;
 
+using Backend.Models;
+
+namespace Backend.Services;
+
 public class ValueService
 {
-    private readonly ValueModel _value;
+    private ValueModel _value;
 
     public ValueService()
     {
@@ -10,8 +14,15 @@ public class ValueService
         _value = new ValueModel("Hello, World!");
     }
 
-    public ErrorOr<ValueModel> GetValue()
+    public ErrorOr<string> GetValue()
     {
-        return _value;
+        return _value.MyValue;
+    }
+
+    public ErrorOr<Updated> SetValue(string value)
+    {
+        _value.MyValue = value;
+
+        return Result.Updated;
     }
 }

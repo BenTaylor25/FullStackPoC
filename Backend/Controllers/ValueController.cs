@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
 
 using Backend.Contract.Value;
+using Backend.Models;
+using Backend.Services;
 
 namespace Backend.Controllers;
 
@@ -10,15 +12,15 @@ public class ValueController : AppBaseController
 {
     private readonly ValueService _valueService;
 
-    public ValueController()
+    public ValueController(ValueService valueService)
     {
-        _valueService = new ValueService();
+        _valueService = valueService;
     }
 
     [HttpGet("/value")]
     public IActionResult GetValue()
     {
-        ErrorOr<ValueModel> getValueResponse = _valueService.GetValue();
+        ErrorOr<string> getValueResponse = _valueService.GetValue();
 
         if (getValueResponse.IsError)
         {
@@ -27,8 +29,25 @@ public class ValueController : AppBaseController
 
         return Ok(
             new ValueResponse(
-                Value: getValueResponse.Value.Value
+                Value: getValueResponse.Value
             )
         );
     }
+
+    [HttpPost("/value/{value}")]
+    public IActionResult SetValue(string value)
+    {
+        ErrorOr<Updated> setValueResponse = _valueService.SetValue(value);
+
+        var resp = _valueService.GetValue();
+        Console.WriteLine(resp.Value);
+
+        if (setValueResponse.IsError)
+        {
+            return Problem();
+        }
+
+        return Ok();
+    }
+
 }
