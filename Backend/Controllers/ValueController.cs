@@ -10,7 +10,7 @@ public class ValueController : AppBaseController
     {
         return Ok(
             new ValueResponse(
-                value: "Hello, World!"
+                Value: "Hello, World!"
             )
         );
     }
