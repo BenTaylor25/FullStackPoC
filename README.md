@@ -25,3 +25,10 @@ git commit -m "init"
 git remote add origin https://github.com/BenTaylor25/FullStackPoC.git
 git push origin master
 ```
+
+NuGet packages:
+```bash
+cd Backend
+
+dotnet add package ErrorOr --version 0.1.0
+```
