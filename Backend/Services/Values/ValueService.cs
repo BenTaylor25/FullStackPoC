@@ -1,27 +1,30 @@
 using ErrorOr;
 
 using Backend.Models;
+using Backend.Database.Interfaces;
 
 namespace Backend.Services.Values;
 
 public class ValueService : IValueService
 {
-    private ValueModel _value;
+    private IValueDB _valueDB;
 
-    public ValueService()
+    public ValueService(IValueDB valueDB)
     {
-        // Database.
-        _value = new ValueModel("Hello, World!");
+        _valueDB = valueDB;
     }
 
     public ErrorOr<string> GetValue()
     {
-        return _value.MyValue;
+        return _valueDB.GetValue().MyValue;
     }
 
     public ErrorOr<Updated> SetValue(string value)
     {
-        _value.MyValue = value;
+        ValueModel valueModel = _valueDB.GetValue();
+        valueModel.MyValue = value;
+
+        _valueDB.SetValue(valueModel);
 
         return Result.Updated;
     }
