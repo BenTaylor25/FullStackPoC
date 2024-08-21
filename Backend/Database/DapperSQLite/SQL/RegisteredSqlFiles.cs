@@ -8,4 +8,6 @@ internal static class RegisterSqlFiles
 
     public static readonly string VALUE_GET_ALL =
         Path.Combine("Value", "GetAllValues.sql");
+    public static readonly string VALUE_INSERT =
+        Path.Combine("Value", "InsertValue.sql");
 }

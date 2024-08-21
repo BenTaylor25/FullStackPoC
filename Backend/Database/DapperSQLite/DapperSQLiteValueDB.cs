@@ -38,6 +38,7 @@ public class DapperSQLiteValueDB : IValueDB
         {
             connection.Open();
 
+            // refactor query to only get last
             string getQuery = SqlHelper.GetSqlFromFile(
                 RegisterSqlFiles.VALUE_GET_ALL
             );
@@ -56,6 +57,17 @@ public class DapperSQLiteValueDB : IValueDB
 
     public void SetValue(ValueModel valueModel)
     {
-        throw new NotImplementedException();
+        using (var connection = _connectionHolder.Connection)
+        {
+            connection.Open();
+
+            string insertQuery = SqlHelper.GetSqlFromFile(
+                RegisterSqlFiles.VALUE_INSERT
+            );
+
+            connection.Execute(insertQuery, new {
+                MyValue = valueModel.MyValue
+            });
+        }
     }
 }
