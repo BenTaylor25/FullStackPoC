@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { getValue } from './API/value';
+import { getValue, setValue } from './API/value';
 import './App.css';
 
 export default function App() {
@@ -9,7 +9,14 @@ export default function App() {
   const [errorValue, setErrorValue] = useState('');
 
   function pushValueButtonClicked() {
-    setClientInputValue('');
+    setValue(clientInputValue)
+      .then(succeeded => {
+        if (succeeded) {
+          setClientInputValue('');
+        } else {
+          setErrorValue('Could not send value to the server.');
+        }
+      });
   }
 
   function getValueButtonClicked() {
@@ -20,7 +27,7 @@ export default function App() {
           setErrorValue('');
         } else {
           setServerValue('');
-          setErrorValue('Could not reach server.');
+          setErrorValue('Could not reach the server.');
         }
       });
   }

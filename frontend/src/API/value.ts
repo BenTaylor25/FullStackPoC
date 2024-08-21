@@ -1,11 +1,10 @@
-import { GET_VALUE_ROUTE } from "../Constants/routes";
+import { GET_VALUE_ROUTE, SET_VALUE_ROUTE } from "../Constants/routes";
 
 export async function getValue(): Promise<string | null> {
     let value = null as string | null;
 
     await fetch(GET_VALUE_ROUTE)
         .then(res => {
-            console.log(res)
             if (res.ok) {
                 return res.json();
             }
@@ -18,4 +17,24 @@ export async function getValue(): Promise<string | null> {
         .catch(() => {});
 
     return value;
+}
+
+export async function setValue(value: string): Promise<boolean> {
+    const route = SET_VALUE_ROUTE + `/${value}`;
+
+    let succeeded = false;
+
+    await fetch(route, {
+        method: 'POST'
+    })
+        .then(res => {
+            if (res.ok) {
+                succeeded = true;
+            }
+
+            throw Error("Server said no.");
+        })
+        .catch(() => {});
+
+    return succeeded;
 }
