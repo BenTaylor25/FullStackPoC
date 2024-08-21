@@ -32,9 +32,26 @@ public class DapperSQLiteValueDB : IValueDB
         }
     }
 
-    public ValueModel GetValue()
+    public ValueModel? GetValue()
     {
-        throw new NotImplementedException();
+        using (var connection = _connectionHolder.Connection)
+        {
+            connection.Open();
+
+            string getQuery = SqlHelper.GetSqlFromFile(
+                RegisterSqlFiles.VALUE_GET_ALL
+            );
+
+            IEnumerable<string> values =
+                connection.Query<string>(getQuery);
+
+            if (!values.Any())
+            {
+                return null;
+            }
+
+            return new ValueModel(values.Last());
+        }
     }
 
     public void SetValue(ValueModel valueModel)

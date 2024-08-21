@@ -1,0 +1,2 @@
+
+SELECT MyValue FROM MyValue

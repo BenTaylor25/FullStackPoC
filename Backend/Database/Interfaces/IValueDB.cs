@@ -4,6 +4,6 @@ namespace Backend.Database.Interfaces;
 
 public interface IValueDB
 {
-    ValueModel GetValue();
+    ValueModel? GetValue();
     void SetValue(ValueModel valueModel);
 }
