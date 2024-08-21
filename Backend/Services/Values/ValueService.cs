@@ -7,6 +7,8 @@ namespace Backend.Services.Values;
 
 public class ValueService : IValueService
 {
+    private const string DEFAULT_VALUE = "Hello, World!";
+
     private IValueDB _valueDB;
 
     public ValueService(IValueDB valueDB)
@@ -16,12 +18,21 @@ public class ValueService : IValueService
 
     public ErrorOr<string> GetValue()
     {
-        return _valueDB.GetValue().MyValue;
+        ValueModel? valueModel = _valueDB.GetValue();
+
+        if (valueModel == null)
+        {
+            return Error.NotFound();
+        }
+
+        return valueModel.MyValue;
     }
 
     public ErrorOr<Updated> SetValue(string value)
     {
-        ValueModel valueModel = _valueDB.GetValue();
+        ValueModel valueModel = _valueDB.GetValue() ??
+            new(DEFAULT_VALUE);
+
         valueModel.MyValue = value;
 
         _valueDB.SetValue(valueModel);
