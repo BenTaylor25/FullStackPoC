@@ -1,3 +1,3 @@
 
 INSERT INTO MyValue (MyValue)
-VALUES (@MyValue)
+VALUES (@MyValue);

@@ -1,2 +1,2 @@
 
-SELECT MyValue FROM MyValue
+SELECT MyValue FROM MyValue;

@@ -38,20 +38,19 @@ public class DapperSQLiteValueDB : IValueDB
         {
             connection.Open();
 
-            // refactor query to only get last
             string getQuery = SqlHelper.GetSqlFromFile(
-                RegisterSqlFiles.VALUE_GET_ALL
+                RegisterSqlFiles.VALUE_GET_LAST
             );
 
-            IEnumerable<string> values =
-                connection.Query<string>(getQuery);
+            string? value =
+                connection.QuerySingleOrDefault<string>(getQuery);
 
-            if (!values.Any())
+            if (value == null)
             {
                 return null;
             }
 
-            return new ValueModel(values.Last());
+            return new ValueModel(value);
         }
     }
 
