@@ -1,0 +1,4 @@
+
+CREATE TABLE IF NOT EXISTS MyValue (
+    MyValue TEXT NOT NULL
+);

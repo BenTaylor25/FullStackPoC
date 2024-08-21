@@ -1,3 +1,4 @@
+using Backend.Database.DapperSQLite.SQL;
 using Backend.Database.Interfaces;
 using Backend.Models;
 using Dapper;
@@ -23,7 +24,9 @@ public class DapperSQLiteValueDB : IValueDB
         {
             connection.Open();
 
-            string createTableQuery = ""; ///
+            string createTableQuery = SqlHelper.GetSqlFromFile(
+                RegisterSqlFiles.INIT_CREATE_USER_TABLE
+            );
 
             connection.Execute(createTableQuery);
         }
