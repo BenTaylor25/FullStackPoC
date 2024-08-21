@@ -7,20 +7,14 @@ namespace Backend.Database.DapperSQLite;
 
 public class DapperSQLiteValueDB : IValueDB
 {
-    SQLiteConnectionHolder _connectionHolder;
-
-    public DapperSQLiteValueDB(
-        SQLiteConnectionHolder sqliteConnectionHolder
-    )
+    public DapperSQLiteValueDB()
     {
-        _connectionHolder = sqliteConnectionHolder;
-
         InitialiseDatabase();
     }
 
     private void InitialiseDatabase()
     {
-        using (var connection = _connectionHolder.Connection)
+        using (var connection = SQLiteConnectionHolder.GetConnection())
         {
             connection.Open();
 
@@ -34,29 +28,29 @@ public class DapperSQLiteValueDB : IValueDB
 
     public ValueModel? GetValue()
     {
-        using (var connection = _connectionHolder.Connection)
+        using (var connection = SQLiteConnectionHolder.GetConnection())
         {
             connection.Open();
 
             string getQuery = SqlHelper.GetSqlFromFile(
-                RegisterSqlFiles.VALUE_GET_LAST
+                RegisterSqlFiles.VALUE_GET_ALL
             );
 
-            string? value =
-                connection.QuerySingleOrDefault<string>(getQuery);
+            IEnumerable<string> values =
+                connection.Query<string>(getQuery);
 
-            if (value == null)
+            if (!values.Any())
             {
                 return null;
             }
 
-            return new ValueModel(value);
+            return new ValueModel(values.Last());
         }
     }
 
     public void SetValue(ValueModel valueModel)
     {
-        using (var connection = _connectionHolder.Connection)
+        using (var connection = SQLiteConnectionHolder.GetConnection())
         {
             connection.Open();
 

@@ -22,7 +22,8 @@ public class ValueService : IValueService
 
         if (valueModel == null)
         {
-            return Error.NotFound();
+            // return Error.NotFound();
+            return DEFAULT_VALUE;
         }
 
         return valueModel.MyValue;

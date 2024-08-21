@@ -17,7 +17,6 @@ public class ValueModel
 
     public ValueModel(string value)
     {
-        Console.WriteLine("model constructor");
         _myValue = value;
     }
 }

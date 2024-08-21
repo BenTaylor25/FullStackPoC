@@ -1,3 +1,5 @@
+using Backend.Database.DapperSQLite;
+using Backend.Database.Interfaces;
 using Backend.Services.Values;
 
 const string FRONTEND_URL = "http://localhost:5173";
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
     builder.Services.AddSingleton<IValueService, ValueService>();
+    builder.Services.AddSingleton<IValueDB, DapperSQLiteValueDB>();
     // builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     builder.Services.AddCors(setup => {

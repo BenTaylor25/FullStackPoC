@@ -1,2 +1,5 @@
 
-SELECT Last(MyValue) FROM MyValue;
+SELECT MyValue
+FROM MyValue
+ORDER BY MyValue DESC
+LIMIT 1;

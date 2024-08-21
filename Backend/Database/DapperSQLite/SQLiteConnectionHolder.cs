@@ -1,15 +1,22 @@
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using Dapper;
 
-public class SQLiteConnectionHolder
+public static class SQLiteConnectionHolder
 {
-    const string CONNECTION_STRING =
-        "Data Source=./database.db;Version=3";
+    static readonly string DIR = Directory.GetCurrentDirectory();
+    static readonly string DB_PATH =
+        $"{DIR}/Database/DapperSQLite/database.db";
+    static readonly string CONNECTION_STRING =
+        $"Data Source={DB_PATH};Version=3";
 
-    public SQLiteConnection Connection {get; private set;}
-
-    public SQLiteConnectionHolder()
+    public static SQLiteConnection GetConnection()
     {
-        Connection = new SQLiteConnection();
+        if (!File.Exists(DB_PATH))
+        {
+            File.Create(DB_PATH);
+        }
+
+        return new SQLiteConnection(CONNECTION_STRING);
     }
 }

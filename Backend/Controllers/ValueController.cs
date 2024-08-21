@@ -14,7 +14,6 @@ public class ValueController : AppBaseController
 
     public ValueController(IValueService valueService)
     {
-        Console.WriteLine("controller constructor");
         _valueService = valueService;
     }
 
