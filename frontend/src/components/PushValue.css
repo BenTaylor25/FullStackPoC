@@ -1,0 +1,7 @@
+
+.PushValueDiv {
+
+    & input {
+        margin-bottom: 1rem;
+    }
+}

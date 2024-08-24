@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 import { setServerValue } from '../API/value';
+
+import './PushValue.css';
 
 export default function PushValue() {
     const [clientInputValue, setClientInputValue] = useState('');
@@ -17,7 +19,7 @@ export default function PushValue() {
     }
 
     return (
-        <div>
+        <div className='PushValueDiv'>
             <input
                 type='text'
                 value={clientInputValue}
