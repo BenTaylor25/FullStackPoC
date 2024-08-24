@@ -11,9 +11,3 @@ div {
   padding: 1rem;
   border: 1px solid white;
 }
-
-p {
-  &.error-message {
-    color: red;
-  }
-}

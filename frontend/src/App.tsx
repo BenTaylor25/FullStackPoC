@@ -1,40 +1,14 @@
-import { useState } from 'react';
-
-import { getServerValue } from './API/value';
-import './App.css';
 import PushValue from './components/PushValue';
+import GetValue from './components/GetValue';
+
+import './App.css';
 
 export default function App() {
-  const [serverValue, setServerValue] = useState('');
-  const [errorValue, setErrorValue] = useState('');
-
-  function getValueButtonClicked() {
-    getServerValue()
-      .then(res => {
-        if (res) {
-          setServerValue(res);
-          setErrorValue('');
-        } else {
-          setServerValue('');
-          setErrorValue('Could not reach the server.');
-        }
-      });
-  }
-
   return (
     <>
       <PushValue />
 
-      <div>
-        <button
-          onClick={getValueButtonClicked}
-        >
-          Get Value From Server
-        </button>
-
-        <p>'{serverValue}'</p>
-        <p className='error-message'>{errorValue}</p>
-      </div>
+      <GetValue />
     </>
   );
 }
