@@ -1,4 +1,36 @@
 
+Tech Stack:
+- C#
+- SQLite
+- Dapper
+- React
+- Redux
+- CSS
+
+Skills:
+- Backend
+    - C#
+    - SQLite
+    - ASP.NET Core
+    - Web APIs
+    - Services
+    - Database Interaction
+    - Relation Databases
+    - SQL
+- Frontend
+    - React
+    - Redux
+    - CSS
+    - Components
+    - State Management
+    - Page Routing
+    - Styling
+- Other
+    - MVC
+    - Git
+    - GitHub
+
+
 
 ```bash
 mkdir FullStackPoC
