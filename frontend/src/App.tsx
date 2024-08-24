@@ -1,26 +1,15 @@
 import { useState } from 'react';
 
-import { getValue, setValue } from './API/value';
+import { getServerValue } from './API/value';
 import './App.css';
+import PushValue from './components/PushValue';
 
 export default function App() {
-  const [clientInputValue, setClientInputValue] = useState('');
   const [serverValue, setServerValue] = useState('');
   const [errorValue, setErrorValue] = useState('');
 
-  function pushValueButtonClicked() {
-    setValue(clientInputValue)
-      .then(succeeded => {
-        if (succeeded) {
-          setClientInputValue('');
-        } else {
-          setErrorValue('Could not send value to the server.');
-        }
-      });
-  }
-
   function getValueButtonClicked() {
-    getValue()
+    getServerValue()
       .then(res => {
         if (res) {
           setServerValue(res);
@@ -34,19 +23,7 @@ export default function App() {
 
   return (
     <>
-      <div>
-        <input
-          type='text'
-          value={clientInputValue}
-          onChange={e => setClientInputValue(e.target.value)}
-        />
-
-        <button
-          onClick={pushValueButtonClicked}
-        >
-          Push to Server
-          </button>
-      </div>
+      <PushValue />
 
       <div>
         <button
