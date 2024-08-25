@@ -2,7 +2,7 @@
 export default function MyNav() {
     return (
         <>
-            navbar
+            <p>navbar</p>
         </>
     );
 }
