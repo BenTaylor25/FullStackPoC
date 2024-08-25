@@ -21,6 +21,7 @@ Skills:
     - React
     - Redux
     - CSS
+    - React Router DOM
     - Components
     - State Management
     - Page Routing
@@ -65,4 +66,10 @@ cd Backend
 dotnet add package ErrorOr --version 0.1.0
 dotnet add package Dapper --version 2.1.35
 dotnet add package System.Data.SQLite --version 1.0.118
+```
+
+```bash
+cd frontend
+
+npm install react-router-dom
 ```
