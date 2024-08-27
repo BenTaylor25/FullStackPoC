@@ -1,0 +1,15 @@
+
+#my-nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+
+    /* The '&' is technically not needed here. */
+    & #nav-title {
+        margin-left: 1rem;
+        font-size: 1.75rem;
+        color: white;
+    }
+}

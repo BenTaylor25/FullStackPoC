@@ -1,8 +1,14 @@
 
+import './MyNav.css';
+
 export default function MyNav() {
     return (
         <>
-            <p>navbar</p>
+            <nav id="my-nav">
+
+                <span id="nav-title">Proof of Concept App</span>
+
+            </nav>
         </>
     );
 }
