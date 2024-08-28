@@ -72,4 +72,5 @@ dotnet add package System.Data.SQLite --version 1.0.118
 cd frontend
 
 npm install react-router-dom
+npm install @reduxjs/toolkit react-redux
 ```
