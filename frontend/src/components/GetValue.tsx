@@ -12,11 +12,11 @@ export default function GetValue() {
         getServerValue()
         .then(res => {
             if (res) {
-            setServerValue(res);
-            setErrorValue('');
+                setServerValue(res);
+                setErrorValue('');
             } else {
-            setServerValue('');
-            setErrorValue('Could not reach the server.');
+                setServerValue('');
+                setErrorValue('Could not reach the server.');
             }
         });
     }
