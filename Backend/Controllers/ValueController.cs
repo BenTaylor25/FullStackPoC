@@ -37,13 +37,7 @@ public class ValueController : AppBaseController
     [HttpPost("/value/{value}")]
     public IActionResult SetValue(string value)
     {
-        var resp = _valueService.GetValue();
-        Console.WriteLine(resp.Value);
-
         ErrorOr<Updated> setValueResponse = _valueService.SetValue(value);
-
-        resp = _valueService.GetValue();
-        Console.WriteLine(resp.Value);
 
         if (setValueResponse.IsError)
         {
