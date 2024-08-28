@@ -6,7 +6,7 @@ import './LocallySharedText.css';
 export default function LocallySharedText() {
     const dispatch = useAppDispatch();
 
-    const text = useAppSelector((state) => state.sharedText.text);
+    const text = useAppSelector(state => state.sharedText.text);
 
     function inputChanged(event: React.ChangeEvent<HTMLInputElement>) {
         if (event.target) {
@@ -17,12 +17,15 @@ export default function LocallySharedText() {
     return (
         <>
             <section className="LocallySharedText">
+
                 <h1>Shared Text</h1>
 
                 <input
                     type="text"
                     value={text}
-                    onChange={inputChanged} />
+                    onChange={inputChanged}
+                />
+
             </section>
         </>
     );
