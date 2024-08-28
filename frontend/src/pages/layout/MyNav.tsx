@@ -12,15 +12,11 @@ export default function MyNav() {
                 <div id="nav-control">
 
                     <Link to="/">
-                        <div className="link">
-                            <span>Page 1</span>
-                        </div>
+                        <span>Page 1</span>
                     </Link>
 
                     <Link to="/other-page">
-                        <div className="link">
-                            <span>Page 2</span>
-                        </div>
+                        <span>Page 2</span>
                     </Link>
 
                 </div>
