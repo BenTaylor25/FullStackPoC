@@ -1,4 +1,4 @@
-import { useAppSelector } from '../hooks/useTypedHooks';
+import { useAppSelector } from '../hooks/useTypedHooks.ts';
 
 import './OtherPage.css';
 

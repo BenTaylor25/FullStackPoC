@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { getServerValue } from '../API/value';
+import { getServerValue } from '../API/value.ts';
 
 import './GetValue.css';
 

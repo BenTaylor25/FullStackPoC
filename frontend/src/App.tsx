@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import MyNav from './pages/layout/MyNav';
-import MainPage from './pages/MainPage';
-import OtherPage from './pages/OtherPage';
-import NotFoundPage from './pages/NotFoundPage';
+import MyNav from './pages/layout/MyNav.tsx';
+import MainPage from './pages/MainPage.tsx';
+import OtherPage from './pages/OtherPage.tsx';
+import NotFoundPage from './pages/NotFoundPage.tsx';
 
 import './App.css';
 

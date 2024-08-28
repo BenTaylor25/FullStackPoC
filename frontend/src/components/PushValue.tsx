@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { setServerValue } from '../API/value';
+import { setServerValue } from '../API/value.ts';
 
 import './PushValue.css';
 

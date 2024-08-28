@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import sharedTextReducer from "./sharedTextSlice";
+import sharedTextReducer from "./sharedTextSlice.ts";
 
 const store = configureStore({
     reducer: {

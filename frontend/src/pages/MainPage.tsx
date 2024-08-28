@@ -1,9 +1,9 @@
-import PushValue from '../components/PushValue';
-import GetValue from '../components/GetValue';
+import PushValue from '../components/PushValue.tsx';
+import GetValue from '../components/GetValue.tsx';
+import LocallySharedText from '../components/LocallySharedText.tsx';
+import UnsharedText from '../components/UnsharedText.tsx';
 
 import './MainPage.css';
-import LocallySharedText from '../components/LocallySharedText';
-import UnsharedText from '../components/UnsharedText';
 
 export default function MainPage() {
 

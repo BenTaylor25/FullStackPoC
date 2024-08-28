@@ -1,4 +1,4 @@
-import { GET_VALUE_ROUTE, SET_VALUE_ROUTE } from "../Constants/routes";
+import { GET_VALUE_ROUTE, SET_VALUE_ROUTE } from "../Constants/routes.ts";
 
 export async function getServerValue(): Promise<string | null> {
     let value = null as string | null;
