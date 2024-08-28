@@ -10,11 +10,11 @@ export default function MyNav() {
 
                 <div id="nav-control">
 
-                    <a>
+                    <a href="/">
                         <span>Page 1</span>
                     </a>
 
-                    <a>
+                    <a href="/other-page">
                         <span>Page 2</span>
                     </a>
 

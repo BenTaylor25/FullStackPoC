@@ -28,6 +28,7 @@
             align-items: center;
             padding: 1rem;
             color: white;
+            text-decoration: none;
 
             &:hover {
                 background-color: white;
