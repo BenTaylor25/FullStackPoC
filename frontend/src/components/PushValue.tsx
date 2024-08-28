@@ -13,6 +13,7 @@ export default function PushValue() {
             .then(succeeded => {
                 if (succeeded) {
                     setClientInputValue('');
+                    setErrorValue('');
                 } else {
                     setErrorValue('Could not send value to the server.');
                 }
