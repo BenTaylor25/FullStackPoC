@@ -12,6 +12,10 @@
         margin-bottom: 1rem;
     }
 
+    & p.error-message {
+        color: red;
+    }
+
     * {
         margin: 1rem;
     }

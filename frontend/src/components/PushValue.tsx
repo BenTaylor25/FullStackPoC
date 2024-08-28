@@ -6,6 +6,7 @@ import './PushValue.css';
 
 export default function PushValue() {
     const [clientInputValue, setClientInputValue] = useState('');
+    const [errorValue, setErrorValue] = useState('');
 
     function pushValueButtonClicked() {
         setServerValue(clientInputValue)
@@ -13,7 +14,7 @@ export default function PushValue() {
                 if (succeeded) {
                     setClientInputValue('');
                 } else {
-                    // setErrorValue('Could not send value to the server.');
+                    setErrorValue('Could not send value to the server.');
                 }
             });
     }
@@ -31,6 +32,8 @@ export default function PushValue() {
             >
                 Push to Server
             </button>
+
+            <p className="error-message">{errorValue}</p>
         </section>
     );
 }
