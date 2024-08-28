@@ -2,6 +2,7 @@ import PushValue from '../components/PushValue';
 import GetValue from '../components/GetValue';
 
 import './MainPage.css';
+import LocallySharedText from '../components/LocallySharedText';
 
 export default function MainPage() {
 
@@ -13,10 +14,12 @@ export default function MainPage() {
 
                     <div className="grid-row">
                         <PushValue />
+                        <LocallySharedText />
                     </div>
 
                     <div className="grid-row">
                         <GetValue />
+                        <LocallySharedText />
                     </div>
 
                 </div>

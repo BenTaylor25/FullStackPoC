@@ -19,7 +19,7 @@ export default function PushValue() {
     }
 
     return (
-        <div className='PushValueDiv'>
+        <section className='PushValue'>
             <input
                 type='text'
                 value={clientInputValue}
@@ -31,7 +31,7 @@ export default function PushValue() {
             >
                 Push to Server
             </button>
-        </div>
+        </section>
     );
 }
 

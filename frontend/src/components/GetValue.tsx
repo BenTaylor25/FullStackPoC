@@ -22,7 +22,7 @@ export default function GetValue() {
     }
 
     return (
-        <div className='GetValue'>
+        <section className='GetValue'>
             <button
                 onClick={getValueButtonClicked}
             >
@@ -31,6 +31,6 @@ export default function GetValue() {
 
             <p>'{serverValue}'</p>
             <p className='error-message'>{errorValue}</p>
-        </div>
+        </section>
     );
 }
