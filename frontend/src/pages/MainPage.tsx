@@ -3,6 +3,7 @@ import GetValue from '../components/GetValue';
 
 import './MainPage.css';
 import LocallySharedText from '../components/LocallySharedText';
+import UnsharedText from '../components/UnsharedText';
 
 export default function MainPage() {
 
@@ -20,6 +21,11 @@ export default function MainPage() {
                     <div className="grid-row">
                         <GetValue />
                         <LocallySharedText />
+                    </div>
+
+                    <div className="grid-row">
+                        <UnsharedText />
+                        <UnsharedText />
                     </div>
 
                 </div>
