@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 import './MyNav.css';
 
@@ -10,13 +11,17 @@ export default function MyNav() {
 
                 <div id="nav-control">
 
-                    <a href="/">
-                        <span>Page 1</span>
-                    </a>
+                    <Link to="/">
+                        <div className="link">
+                            <span>Page 1</span>
+                        </div>
+                    </Link>
 
-                    <a href="/other-page">
-                        <span>Page 2</span>
-                    </a>
+                    <Link to="/other-page">
+                        <div className="link">
+                            <span>Page 2</span>
+                        </div>
+                    </Link>
 
                 </div>
 

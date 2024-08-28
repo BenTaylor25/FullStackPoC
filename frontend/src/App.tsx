@@ -10,9 +10,9 @@ import './App.css';
 export default function App() {
   return (
     <>
-      <MyNav />
-
       <BrowserRouter>
+        <MyNav />
+
         <Routes>
 
           <Route path="/" element={ <MainPage /> } />
