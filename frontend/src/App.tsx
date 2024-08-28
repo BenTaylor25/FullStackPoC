@@ -1,63 +1,28 @@
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { getValue, setValue } from './API/value';
+import MyNav from './pages/layout/MyNav.tsx';
+import MainPage from './pages/MainPage.tsx';
+import OtherPage from './pages/OtherPage.tsx';
+import NotFoundPage from './pages/NotFoundPage.tsx';
+
 import './App.css';
 
 export default function App() {
-  const [clientInputValue, setClientInputValue] = useState('');
-  const [serverValue, setServerValue] = useState('');
-  const [errorValue, setErrorValue] = useState('');
-
-  function pushValueButtonClicked() {
-    setValue(clientInputValue)
-      .then(succeeded => {
-        if (succeeded) {
-          setClientInputValue('');
-        } else {
-          setErrorValue('Could not send value to the server.');
-        }
-      });
-  }
-
-  function getValueButtonClicked() {
-    getValue()
-      .then(res => {
-        if (res) {
-          setServerValue(res);
-          setErrorValue('');
-        } else {
-          setServerValue('');
-          setErrorValue('Could not reach the server.');
-        }
-      });
-  }
-
   return (
     <>
-      <div>
-        <input
-          type='text'
-          value={clientInputValue}
-          onChange={e => setClientInputValue(e.target.value)}
-        />
+      <BrowserRouter>
+        <MyNav />
 
-        <button
-          onClick={pushValueButtonClicked}
-        >
-          Push to Server
-          </button>
-      </div>
+        <Routes>
 
-      <div>
-        <button
-          onClick={getValueButtonClicked}
-        >
-          Get Value From Server
-        </button>
+          <Route path="/" element={ <MainPage /> } />
 
-        <p>'{serverValue}'</p>
-        <p className='error-message'>{errorValue}</p>
-      </div>
+          <Route path="/other-page" element={ <OtherPage /> } />
+
+          <Route path="*" element={ <NotFoundPage /> } />
+
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

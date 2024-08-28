@@ -1,0 +1,18 @@
+
+.GetValue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    border: 3px solid black;
+    margin: 1rem;
+
+    & p.error-message {
+        color: red;
+    }
+
+    * {
+        margin: 1rem;
+    }
+}

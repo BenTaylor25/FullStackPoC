@@ -1,6 +1,6 @@
-import { GET_VALUE_ROUTE, SET_VALUE_ROUTE } from "../Constants/routes";
+import { GET_VALUE_ROUTE, SET_VALUE_ROUTE } from "../Constants/routes.ts";
 
-export async function getValue(): Promise<string | null> {
+export async function getServerValue(): Promise<string | null> {
     let value = null as string | null;
 
     await fetch(GET_VALUE_ROUTE)
@@ -19,7 +19,7 @@ export async function getValue(): Promise<string | null> {
     return value;
 }
 
-export async function setValue(value: string): Promise<boolean> {
+export async function setServerValue(value: string): Promise<boolean> {
     const route = SET_VALUE_ROUTE + `/${value}`;
 
     let succeeded = false;
