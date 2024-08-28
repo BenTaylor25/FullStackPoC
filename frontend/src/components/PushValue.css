@@ -1,7 +1,18 @@
 
 .PushValueDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    border: 3px solid black;
+    margin: 1rem;
 
     & input {
         margin-bottom: 1rem;
+    }
+
+    * {
+        margin: 1rem;
     }
 }
