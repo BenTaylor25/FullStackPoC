@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/useTypedHooks.ts';
+import { setText } from '../stores/sharedTextSlice.ts';
 
 import './LocallySharedText.css';
 
 export default function LocallySharedText() {
-    const [test, setTest] = useState('test');
+    const dispatch = useAppDispatch();
+
+    const text = useAppSelector((state) => state.sharedText.text);
 
     function inputChanged(event: React.ChangeEvent<HTMLInputElement>) {
         if (event.target) {
-            setTest(event.target.value);
+            dispatch(setText(event.target.value));
         }
     }
 
@@ -18,7 +21,7 @@ export default function LocallySharedText() {
 
                 <input
                     type="text"
-                    value={test}
+                    value={text}
                     onChange={inputChanged} />
             </section>
         </>

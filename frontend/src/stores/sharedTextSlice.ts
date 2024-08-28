@@ -1,11 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface SharedTextState {
+    text: string;
+}
+
+const initialState: SharedTextState = {
+    text: 'shared'
+}
+
 const sharedTextSlice = createSlice({
     name: 'sharedText',
-    initialState: { value: 'shared' },
+    initialState,
     reducers: {
         setText: (state, action: PayloadAction<string>) => {
-            state.value = action.payload;
+            state.text = action.payload;
         }
     }
 });
