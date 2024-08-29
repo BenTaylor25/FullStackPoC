@@ -59,7 +59,7 @@ git remote add origin https://github.com/BenTaylor25/FullStackPoC.git
 git push origin master
 ```
 
-NuGet packages:
+NuGet Packages:
 ```bash
 cd Backend
 
@@ -68,6 +68,7 @@ dotnet add package Dapper --version 2.1.35
 dotnet add package System.Data.SQLite --version 1.0.118
 ```
 
+NPM Pacakges:
 ```bash
 cd frontend
 
