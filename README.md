@@ -75,15 +75,86 @@ solution.
 
 Tech Stack:
 - React
+- TypeScript
 - Redux
 - CSS
 - C#
+- ASP.NET Core
 - SQLite
 - Dapper
+
+--
+
+- Fundamentally, browsers understand how to work with HTML, CSS, and
+JavaScript. HTML for the actual content; CSS for styling; JavaScript for
+enabling more complex interaction like enabling dynamic content and
+handling API requests.
+As soon as you want to build a large project, however, you find that you
+have to do things that are difficult using 'vanilla' HTML, CSS and JS.
+This is where UI Frameworks come in. There are many examples of these that
+provide different ways to build your UIs, the most popular is React, with
+Angular and Vue in 2nd and 3rd position.
+
+- JavaScript is extremely flexible with what it allows. `'1' + '1' - '1'`
+is an operator/type error in any normal language, but JavaScript uses
+inintuitive type conversion to give the result `10`. This can lead to a lot
+of bugs not being caught before production (when it's used by real users).
+TypeScript is an extension of JavaScript that we can work with during
+development to help us catch bugs before they reach production. TypeScript
+compiles to JavaScript so that it can be understood by the browser.
+
+- Redux is the most popular State Management solution for React (though it
+is also compatible with other frameworks). It allows us to have data stored
+centrally such that any component can access it. When a value changes, all
+references being displayed on the UI will re-render to reflect the changes.
+
+--
+
+- C# is an Object-Oriented programming language similar to Java. It is a
+common choice for building robust server-side API applications.
+C# exists within the .NET ecosystem which includes ASP.NET Core - a server-
+side runtime for APIs.
+
+- SQLite is a Database solution, however it is a somewhat controversial
+one because it doesn't scale well, it can't handle parllel read/write
+requests, it's syntax is much less rich than alternatives, and because it
+has you interact with a raw file rather than a full DBMS system.
+With that said, it is a powerful tool that is much easier to set up than
+alternatives, and if we write our code carefully using Dependency Injection
+we can decide to switch it out later without re-writing any of our logic.
+
+- Dependency Injection is a scary term for a fairly simple idea. Basically
+when we need a reference to another object, DI says that we should accept
+an interface rather than a 'concrete' type. This means that we can
+implement an alternative and switch it in without having to re-write old
+logic. An example would be if we were to have an interface for everything
+we want to store to the database; we can have an implementation that uses
+SQLite but have the main logic reference the interface. That way, we would
+be able to implement an alternative for Postgres or MySQL, and just tell
+the logic to use that one instead.
+
+- C# doesn't have a built-in way for talking to databases, but there are a
+few packages that we can choose from. Entity Framework is possibly the most
+common, but it can be quite easy to misuse as you're not necessarily
+writing your own SQL queries. ADO.NET is the opposite end of the spectrum;
+you have to set up and manage database connections as well as providing
+SQL queries. Dapper is a healthy middle ground; most of the connection
+handling is done for us, but we have full control over the SQL queries.
+If you're keeping a list of all of the things you need to be familiar with
+in order to build this application, you shouldn't worry about adding
+Dapper. It just provides a few functions to help us communicate between
+C# and SQLite.
+
+- SQL (Structured Query Language) is a special syntax for interacting with
+Relational Databases. Most databases are Relational, meaning that they
+store data in tables that relate to each other, but there are some
+alternatives that are sometimes called NoSQL databases (including Document,
+Timeseries and Graph).
 
 Skills:
 - Frontend
     - React
+    - TypeScript
     - Redux
     - CSS
     - React Router DOM
@@ -100,6 +171,7 @@ Skills:
     - Database Interaction
     - Relation Databases
     - SQL
+    - Dependency Injection
 - Other
     - MVC
     - Git
@@ -114,7 +186,7 @@ cd FullStackPoC
 dotnet new sln --name FullStackPoC
 dotnet new webapi -o Backend
 dotnet sln add .\Backend\
-# create .gitignore
+# [make sure to create the .gitignore file]
 
 npm create vite@latest
 # Ok to proceed? `y`
